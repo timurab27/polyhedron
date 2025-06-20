@@ -42,6 +42,15 @@ class R3:
             self.z * other.x - self.x * other.z,
             self.x * other.y - self.y * other.x)
 
+    # Является ли точка "хорошей"?
+    def is_good_p(self):
+        return (abs(self.x) < 2 and abs(self.y) < 2 and
+                (abs(self.x) > 1 or abs(self.y) > 1))
+
+    # Длина проекции отрезка
+    def length(p1, p2):
+        return sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2)
+
 
 if __name__ == "__main__":  # pragma: no cover
     x = R3(1.0, 1.0, 1.0)
