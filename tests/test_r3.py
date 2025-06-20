@@ -124,5 +124,3 @@ class TestR3(unittest.TestCase):
         a = R3(1.0, -2.0, 4.0)
         b = R3(3.0, -2.0, 1.0)
         self.assertAlmostEqual(a.length(b), 2.0)
-
-    
