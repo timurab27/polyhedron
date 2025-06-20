@@ -37,6 +37,7 @@ class TestPolyedr1(unittest.TestCase):
     def test_num_edges(self):
         self.assertEqual(len(self.polyedr.edges), 16)
 
+
 class TestPolyedr2(unittest.TestCase):
 
     @classmethod
