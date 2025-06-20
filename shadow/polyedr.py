@@ -167,7 +167,6 @@ class Polyedr:
                             self.sum += p1.length(p2)
                     # задание самой грани
                     self.facets.append(Facet(vertexes))
-
         self.sum = self.sum / 2
 
     # Метод изображения полиэдра
