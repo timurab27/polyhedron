@@ -127,7 +127,6 @@ class Polyedr:
 
         # списки вершин, рёбер и граней полиэдра
         self.vertexes, self.edges, self.facets = [], [], []
-        self.vertexes0 = []
         self.sum = 0
 
         # список строк файла
@@ -146,7 +145,6 @@ class Polyedr:
                 elif i < nv + 2:
                     # задание всех вершин полиэдра
                     x, y, z = (float(x) for x in line.split())
-                    self.vertexes0.append(R3(x, y, z))
                     self.vertexes.append(R3(x, y, z).rz(
                         alpha).ry(beta).rz(gamma) * c)
                 else:
@@ -156,12 +154,11 @@ class Polyedr:
                     size = int(buf.pop(0))
                     # массив вершин этой грани
                     vertexes = list(self.vertexes[int(n) - 1] for n in buf)
-                    vertexes0 = [self.vertexes0[int(n) - 1] for n in buf]
                     # задание рёбер грани
                     for n in range(size):
                         self.edges.append(Edge(vertexes[n - 1], vertexes[n]))
-                        p1 = vertexes0[n - 1]
-                        p2 = vertexes0[n]
+                        p1 = vertexes[n - 1]
+                        p2 = vertexes[n]
                         p = R3((p1.x + p2.x) / 2, (p1.y + p2.y) / 2, 0)
                         if p1.is_good_p() and p2.is_good_p() and p.is_good_p():
                             self.sum += p1.length(p2)
