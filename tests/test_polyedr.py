@@ -42,7 +42,7 @@ class TestPolyedr2(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        fake_file_content = """100.0	45.0	45.0	30.0
+        fake_file_content = """1.0	0.0	0.0	0.0
 8	6	24
 -1.5	-1.5	1.5
 -1.5	1.5	1.5
